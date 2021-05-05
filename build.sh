@@ -20,3 +20,6 @@ emcc -flto --closure 1 -Oz \
   -s MODULARIZE -s EXPORT_ES6 -s ENVIRONMENT=web -s WASM=1 \
   lib/libzstd.so
 EOF
+
+echo "/** @internal */\nexport const BINARY = \"$(scripts/base64.js zstd.wasm)\";" > src/binary.ts
+mv zstd.js src/zstd.js

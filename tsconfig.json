@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2017",
+    "declaration": true,
+    "declarationMap": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "importsNotUsedAsValues": "error",
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "strict": true,
+    "strictNullChecks": true,
+    "allowJs": true,
+    "outDir": "lib"
+  },
+  "exclude": ["./**/node_modules"],
+  "include": ["./src/**/*.ts"]
+}

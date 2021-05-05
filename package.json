@@ -1,9 +1,9 @@
 {
   "name": "zstd-wasm",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Zstandard javascript binding for browsers.",
-  "module": "./zstd.js",
-  "main": "./zstd.js",
+  "module": "./lib/index.js",
+  "main": "./lib/index.js",
   "author": "stwind <stwindfy@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -14,19 +14,24 @@
   "private": false,
   "scripts": {
     "build": "./build.sh",
-    "clean": "rm -rf zstd.js zstd.wasm"
+    "build:es6": "tsc --declaration",
+    "clean": "rm -rf lib"
   },
   "files": [
-    "zstd.js",
-    "zstd.wasm"
+    "lib"
   ],
   "keywords": [
     "zstandard",
     "zstd",
-    "wasm"
+    "wasm",
+    "emscripten"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "sideEffects": false
+  "sideEffects": false,
+  "devDependencies": {
+    "@thi.ng/transducers-binary": "^0.6.19",
+    "typescript": "^4.2.4"
+  }
 }
