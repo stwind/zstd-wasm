@@ -22,4 +22,4 @@ emcc -flto --closure 1 -Oz \
 EOF
 
 echo "/** @internal */\nexport const BINARY = \"$(scripts/base64.js zstd.wasm)\";" > src/binary.ts
-mv zstd.js src/zstd.js
+mv zstd.js src/wrapper.js
