@@ -1,13 +1,32 @@
 {
   "name": "zstd-wasm",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Zstandard javascript binding for browsers.",
-  "main": "zstd.js",
+  "module": "./zstd.js",
+  "main": "./zstd.js",
   "author": "stwind <stwindfy@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stwind/zstd-wasm.git"
+  },
+  "homepage": "https://github.com/stwind/zstd-wasm",
   "private": false,
   "scripts": {
     "build": "./build.sh",
     "clean": "rm -rf zstd.js zstd.wasm"
-  }
+  },
+  "files": [
+    "zstd.js",
+    "zstd.wasm"
+  ],
+  "keywords": [
+    "zstandard",
+    "zstd",
+    "wasm"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "sideEffects": false
 }
