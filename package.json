@@ -1,0 +1,13 @@
+{
+  "name": "zstd-wasm",
+  "version": "1.0.0",
+  "description": "Zstandard javascript binding for browsers.",
+  "main": "zstd.js",
+  "author": "stwind <stwindfy@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "./build.sh",
+    "clean": "rm -rf zstd.js zstd.wasm"
+  }
+}
