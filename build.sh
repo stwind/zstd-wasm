@@ -1,6 +1,8 @@
 #!/bin/sh
 
 ZSTD_VERSION=v1.4.9
+INITIAL_MEMORY=$((32 * 1024 * 1024))
+TOTAL_STACK=$((20 * 1024 * 1024))
 
 docker run -i --rm -v $(pwd):/src emscripten/emsdk:2.0.19 bash <<-EOF
 set -euxo pipefail
@@ -18,6 +20,9 @@ emcc -flto --closure 1 -Oz \
   -s EXPORTED_FUNCTIONS="['_ZSTD_isError', '_ZSTD_getFrameContentSize', '_ZSTD_decompress', '_malloc', '_free']" \
   -s EXPORTED_RUNTIME_METHODS="['ccall', 'cwrap']" \
   -s MODULARIZE -s EXPORT_ES6 -s ENVIRONMENT=web -s WASM=1 \
+  -s ALLOW_MEMORY_GROWTH=1 \
+  -s INITIAL_MEMORY=${INITIAL_MEMORY} \
+  -s TOTAL_STACK=${TOTAL_STACK} \
   lib/libzstd.so
 EOF
 

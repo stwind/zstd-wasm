@@ -1,6 +1,6 @@
 {
   "name": "zstd-wasm",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Zstandard javascript binding for browsers.",
   "module": "./lib/index.js",
   "main": "./lib/index.js",
