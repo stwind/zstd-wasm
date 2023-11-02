@@ -1,10 +1,10 @@
 {
   "name": "zstd-wasm",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Zstandard javascript binding for browsers.",
   "type": "module",
-  "module": "./lib/index.js",
-  "main": "./lib/index.js",
+  "module": "./lib/index.mjs",
+  "main": "./lib/index.mjs",
   "author": "stwind <stwindfy@gmail.com>",
   "license": "MIT",
   "repository": {
