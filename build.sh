@@ -1,10 +1,11 @@
 #!/bin/sh
 
-ZSTD_VERSION=v1.4.9
+ZSTD_VERSION=v1.5.5
 INITIAL_MEMORY=$((32 * 1024 * 1024))
 TOTAL_STACK=$((20 * 1024 * 1024))
+EMSDK_VERSION=3.1.47
 
-docker run -i --rm -v $(pwd):/src emscripten/emsdk:2.0.19 bash <<-EOF
+docker run -i --rm -v $(pwd):/src emscripten/emsdk:${EMSDK_VERSION} bash <<-EOF
 set -euxo pipefail
 
 git clone https://github.com/facebook/zstd.git /opt/zstd && cd /opt/zstd && git checkout "${ZSTD_VERSION}"
@@ -27,4 +28,4 @@ emcc -flto --closure 1 -Oz \
 EOF
 
 echo "/** @internal */\nexport const BINARY = \"$(scripts/base64.js zstd.wasm)\";" > src/binary.ts
-mv zstd.js src/wrapper.js
+mv zstd.js src/zstd.js
