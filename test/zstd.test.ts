@@ -8,6 +8,16 @@ const allclose = (a: TypedArray, b: TypedArray, eps?: number) =>
   a.length == b.length && a.every((x: number, i: number) => isClose(x, b[i], eps));
 
 const decompressor = await new Decompressor().init();
+
+// Test data was generated with
+//
+// ```python
+// from zstandard import ZstdCompressor
+// x = np.random.randn(2**18).astype("f4")
+// with open("x.zst", "wb") as f:
+//     cctx = ZstdCompressor(level=22)
+//     f.write(cctx.compress(x.tobytes()))
+// ```
 const data = new Uint8Array(readFileSync("test/x.zst").buffer);
 
 const check = (x: Float32Array) => {
