@@ -1,6 +1,6 @@
 {
   "name": "zstd-wasm",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Zstandard javascript binding for browsers.",
   "type": "module",
   "module": "./lib/index.js",
@@ -15,6 +15,7 @@
   "scripts": {
     "build:wasm": "./build.sh",
     "build": "tsc --declaration",
+    "publish": "npm publish --ignore-scripts",
     "clean": "rm -rf lib",
     "test": "vitest",
     "ncu": "ncu"
