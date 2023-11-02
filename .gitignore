@@ -9,3 +9,5 @@ public/
 lib/
 snowpack.config.js
 *.wasm
+
+.yarn
