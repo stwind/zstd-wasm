@@ -94,6 +94,8 @@ export class Decompressor {
       while (readSize = bufRead(mod.HEAPU8, data.subarray(pos, this.ZSTD_DStreamInSize), input.value.src)) {
         pos += readSize;
         input.value.size = readSize;
+        input.value.pos = 0;
+
         while (input.value.pos < input.value.size) {
           output.value.pos = 0;
           const ret = mod._ZSTD_decompressStream(dctx, output.ptr, input.ptr);
