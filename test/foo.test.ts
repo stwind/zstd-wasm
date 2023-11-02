@@ -5,10 +5,9 @@ import { Decompressor } from "../src/index.mjs";
 
 const isClose = (a: number, b: number, eps: number = Number.EPSILON) => Math.abs(a - b) < eps;
 const allclose = (a: TypedArray, b: TypedArray, eps?: number) =>
-  a.length == b.length && a.every((x, i) => isClose(x, b[i], eps));
+  a.length == b.length && a.every((x: number, i: number) => isClose(x, b[i], eps));
 
 const decompressor = await new Decompressor().init();
-// const data = new Uint8Array(readFileSync("zstd.h.zst").buffer);
 const data = new Uint8Array(readFileSync("test/x.zst").buffer);
 
 const check = (x: Float32Array) => {
