@@ -40,7 +40,7 @@ describe("zstd", () => {
     check(new Float32Array(decompressor.decompress(data).buffer));
   });
 
-  test.only("stream", () => {
+  test("stream", () => {
     const chunks: Uint8Array[] = [];
     for (const chunk of decompressor.stream(data))
       chunks.push(chunk.slice());
